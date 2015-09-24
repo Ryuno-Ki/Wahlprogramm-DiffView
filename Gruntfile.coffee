@@ -21,7 +21,7 @@ module.exports = (grunt) ->
                     removeComments: true
                     collapseWhitespace: true
                 files:
-                    'index.html': 'source.html'
+                    'build/index.html': 'source.html'
 
         jshint:
             beforeconcat: [
