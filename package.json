@@ -1,0 +1,23 @@
+{
+  "name": "wahlprogramm-diffview",
+  "version": "1.0.0",
+  "description": "Since political manifestos happen to change at party conferences, show diff GitHub-like.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryuno-Ki/Wahlprogramm-DiffView.git"
+  },
+  "keywords": [
+    "Conferences",
+    "DiffView"
+  ],
+  "author": "André Jaenisch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ryuno-Ki/Wahlprogramm-DiffView/issues"
+  },
+  "homepage": "https://github.com/Ryuno-Ki/Wahlprogramm-DiffView#readme"
+}
