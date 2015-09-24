@@ -11,3 +11,7 @@ body {
 .toc {
     display: none;
 }
+
+#amendments li {
+    white-space: pre-line;
+}
