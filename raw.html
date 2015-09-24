@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Wahlprogramm-DiffView</title>
+        <link rel="stylesheet" href="app.min.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Wahlprogramm-DiffView</h1>
+        <div id="origin" class="manifesto">
+            <h2>Aktuelles Wahlprogramm</h2>
+            <!-- build:include manifesto/LPT15_02.html -->
+            Importiere das Programm in manifesto an diese Stelle.
+            <!-- /build -->
+        </div>
+        <div id="amendments" class="manifesto">
+            <h2>Programmänderungs-Anträge</h2>
+            <!-- Eingereichte Änderungswünsche werden hier eingebunden -->
+            <ol>
+                <li>
+                    Amendment
+                </li>
+            </ol>
+        </div>
+        <!-- build:js inline amendments/LPT15_02-PÄA.js -->
+        <!-- /build -->
+    </body>
+</html>

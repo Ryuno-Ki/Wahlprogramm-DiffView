@@ -1,0 +1,13 @@
+body {
+    color: #000;
+    background-color: #FFF;
+}
+
+.manifesto {
+    max-width: 45%;
+    float: left;
+}
+
+.toc {
+    display: none;
+}

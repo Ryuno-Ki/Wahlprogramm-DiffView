@@ -55,13 +55,15 @@ module.exports = (grunt) ->
         watch:
             scripts:
                 files: [
+                    'raw.html'
                     'js/*.js'
                     'css/*.css'
                 ]
                 tasks: [
+                    'processhtml'
+                    'htmlmin'
                     'cssmin'
                     'uglify'
-                    'jshint'
                 ]
 
     # Load the plugins
