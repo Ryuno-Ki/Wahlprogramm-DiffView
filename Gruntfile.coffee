@@ -50,7 +50,7 @@ module.exports = (grunt) ->
                     screwIE8: true
                     sourceMap: true
                 files:
-                    'build/app.min.js': [ 'js/<% pkg.name %>.js' ]
+                    'build/app.min.js': [ 'js/<%= pkg.name %>.js' ]
 
         watch:
             scripts:
