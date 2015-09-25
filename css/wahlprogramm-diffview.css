@@ -3,6 +3,34 @@ body {
     background-color: #FFF;
 }
 
+#choices p {
+    display: inline-block;
+    float: left;
+    border: 1px solid #000;
+    margin-top: 0;
+    margin-left: 1em;
+    padding: 0.25em 0;
+}
+
+#choices input {
+    visibility: hidden;
+    width: 0.1em;
+}
+
+#choices input:checked + label {
+    background-color: orange;
+}
+
+#choices label {
+    cursor: pointer;
+    margin-left: -1.25em;
+    padding: 0.25em;
+}
+
+#choices + div {
+    clear: both;
+}
+
 .manifesto {
     max-width: 45%;
     float: left;
@@ -14,4 +42,8 @@ body {
 
 #amendments li {
     white-space: pre-line;
+}
+
+#amendments .unselected {
+    display: none;
 }
