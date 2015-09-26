@@ -18,7 +18,10 @@ module.exports = (grunt) ->
         'gh-pages':
             options:
                 base: 'build'
-            src: ['index.html']
+            src: [
+                'index.html'
+                'offline.appcache'
+            ]
 
         htmlmin:
             build:
