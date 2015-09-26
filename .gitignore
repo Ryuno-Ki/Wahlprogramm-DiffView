@@ -4,3 +4,4 @@ node_modules/
 source.html
 manifesto/
 amendments/
+.grunt/
