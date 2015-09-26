@@ -11,6 +11,14 @@
     <body>
         <h1>Wahlprogramm-DiffView</h1>
         <div id="choices"></div>
+        <form id="accept-refuse" action="">
+            <p><select><option value="?">Antrag auswählen</option></select></p>
+            <p>
+                <input type="radio" name="accept-refuse" value="accepted" />Angenommen
+                <input type="radio" name="accept-refuse" value="refused" />Abgelehnt
+            </p>
+            <p><input type="submit" value="Merken" /></p>
+        </form>
         <div id="origin" class="manifesto">
             <h2>Aktuelles Wahlprogramm</h2>
             <p>

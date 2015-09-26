@@ -27,8 +27,22 @@ body {
     padding: 0.25em;
 }
 
-#choices + div {
+#choices input + label.accepted {
+    background-color: lime;
+}
+
+#choices input + label.refused {
+    background-color: coral;
+}
+
+#choices + form {
     clear: both;
+}
+
+#accept-refuse p {
+    display: inline-block;
+    float: left;
+    margin-right: 0.5em;
 }
 
 .manifesto {
