@@ -36,8 +36,40 @@ body {
     float: left;
 }
 
-.toc {
-    display: none;
+#origin > div {
+    counter-reset: firstLevel;
+}
+
+#origin > div h1 {
+    counter-reset: secondLevel;
+}
+
+#origin > div h2 {
+    counter-reset: thirdLevel;
+}
+
+#origin > div h3 {
+    counter-reset: fourthLevel;
+}
+
+#origin div h1::before {
+    content: counters(firstLevel,".") ".";
+    counter-increment: firstLevel;
+}
+
+#origin div h2::before  {
+    content: counters(firstLevel,".") "." counters(secondLevel,".") ".";
+    counter-increment: secondLevel;
+}
+
+#origin div h3::before  {
+    content: counters(firstLevel,".") "." counters(secondLevel,".") "." counters(thirdLevel,".") " ";
+    counter-increment: thirdLevel;
+}
+
+#origin div h4::before  {
+    content: counters(firstLevel,".") "." counters(secondLevel,".") "." counters(thirdLevel,".") "." counters(fourthLevel,".") " ";
+    counter-increment: fourthLevel;
 }
 
 #amendments ol {
