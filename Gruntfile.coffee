@@ -15,6 +15,11 @@ module.exports = (grunt) ->
                         'css/<%= pkg.name %>.css'
                     ]
 
+        'gh-pages':
+            options:
+                base: 'build'
+            src: ['index.html']
+
         htmlmin:
             build:
                 options:
@@ -60,10 +65,11 @@ module.exports = (grunt) ->
                     'css/*.css'
                 ]
                 tasks: [
-                    'processhtml'
-                    'htmlmin'
                     'cssmin'
                     'uglify'
+                    'processhtml'
+                    'htmlmin'
+                    'gh-pages'
                 ]
 
     # Load the plugins
@@ -72,6 +78,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-jshint'
     grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-watch'
+    grunt.loadNpmTasks 'grunt-gh-pages'
     grunt.loadNpmTasks 'grunt-notify'
     grunt.loadNpmTasks 'grunt-processhtml'
 
@@ -81,5 +88,6 @@ module.exports = (grunt) ->
         'htmlmin'
         'cssmin'
         'uglify'
+        'gh-pages'
         'watch'
     ]

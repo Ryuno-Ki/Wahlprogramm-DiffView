@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <title>Wahlprogramm-DiffView</title>
-        <link rel="stylesheet" href="app.min.css" />
+        <!-- build:css inline -->
+        <link rel="stylesheet" href="build/app.min.css" />
+        <!-- /build -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -18,9 +20,11 @@
                 </a>
                 (<a href="http://creativecommons.org/licenses/by/3.0/de/" target="_blank">CC BY-SA 3.0</a>)
             </p>
-            <!-- build:include manifesto/LPT15_02.html -->
-            Importiere das Programm in manifesto an diese Stelle.
-            <!-- /build -->
+            <div>
+                <!-- build:include manifesto/LPT15_02.html -->
+                Importiere das Programm in manifesto an diese Stelle.
+                <!-- /build -->
+            </div>
         </div>
         <div id="amendments" class="manifesto">
             <h2>Programmänderungs-Anträge</h2>
