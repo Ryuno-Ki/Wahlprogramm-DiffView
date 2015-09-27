@@ -8,16 +8,20 @@
     form = document.getElementById("accept-refuse");
 
     appendPäa = function(list, päa) {
-        var li, amendment, i, len, subAmendment, subItem;
+        var li, amendment, i, len, subAmendment, subItem, content;
 
         li = document.createElement("li");
         li.dataset.relatedTo = "PÄA" + päa.number;
+        li.appendChild(document.createTextNode("PÄA" + päa.number + ": "));
         if (päa.hasModules) {
             amendment = document.createElement("ol");
             for (i = 0, len = päa.amendment.length; i < len; i += 1) {
                 subAmendment = päa.amendment[i];
                 subItem = document.createElement("li");
-                subItem.appendChild(document.createTextNode(subAmendment.content));
+                content = document.createElement("blockquote");
+                content.appendChild(document.createTextNode(subAmendment.content));
+                subItem.appendChild(document.createTextNode("Modul " + subAmendment.moduleNumber + ": "));
+                subItem.appendChild(content);
                 amendment.appendChild(subItem);
             }
         } else {
