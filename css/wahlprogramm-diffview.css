@@ -1,6 +1,7 @@
 body {
     color: #000;
     background-color: #FFF;
+    position: relative;
 }
 
 #choices p {

@@ -1,23 +1,50 @@
 (function(global) {
     "use strict";
-    var päas, node, choices, form, i, len, päa, ol, appendPäa, appendChoice, onUserChoice, buildAcceptRefuseFormOption, onSubmit, clearAmendment;
+    var päas, node, choices, form, affectedAmendments, i, len, päa, ol, moveNextToAmendment, appendPäa, appendChoice, onUserChoice, buildAcceptRefuseFormOption, onSubmit, clearAmendment;
 
     päas = global.päas;
     node = document.getElementById("amendments");
     choices = document.getElementById("choices");
     form = document.getElementById("accept-refuse");
+    affectedAmendments = {};
+
+    moveNextToAmendment = function(amendment, item) {
+        var affected, offset, i, len, a;
+        affected = document.getElementById(amendment);
+        item.style.position = "absolute";
+        if (!(amendment in affectedAmendments)) {
+            affectedAmendments[amendment] = [];
+        }
+        offset = 0;
+        for (i = 0, len = affectedAmendments[amendment].length; i < len; i += 1) {
+            a = affectedAmendments[amendment][i];
+            offset += parseInt(a.height, 10);
+        }
+        item.style.top = affected.offsetTop + offset + "px";
+        affectedAmendments[amendment].push(affected);
+    };
 
     appendPäa = function(list, päa) {
         var li, amendment, i, len, subAmendment, subItem, content;
 
         li = document.createElement("li");
         li.dataset.relatedTo = "PÄA" + päa.number;
+        if (päa.affects) {
+            setTimeout(function() {
+                moveNextToAmendment(päa.affects, li);
+            }, 0);
+        }
         li.appendChild(document.createTextNode("PÄA" + päa.number + ": "));
         if (päa.hasModules) {
             amendment = document.createElement("ol");
             for (i = 0, len = päa.amendment.length; i < len; i += 1) {
                 subAmendment = päa.amendment[i];
                 subItem = document.createElement("li");
+                if (subAmendment.affects) {
+                    setTimeout(function() {
+                        moveNextToAmendment(subAmendment.affects, subItem);
+                    }, 0);
+                }
                 content = document.createElement("blockquote");
                 content.appendChild(document.createTextNode(subAmendment.content));
                 subItem.appendChild(document.createTextNode("Modul " + subAmendment.moduleNumber + ": "));
