@@ -1,16 +1,20 @@
 (function(global) {
     "use strict";
-    var päas, node, choices, form, affectedAmendments, i, len, päa, ol, moveNextToAmendment, appendPäa, appendChoice, onUserChoice, buildAcceptRefuseFormOption, onSubmit, clearAmendment;
+    var päas, node, choices, form, toggle, affectedAmendments, i, len, päa, ol, moveNextToAmendment, appendPäa, appendChoice, onUserChoice, toggleChoices, buildAcceptRefuseFormOption, onSubmit, clearAmendment;
 
     päas = global.päas;
     node = document.getElementById("amendments");
     choices = document.getElementById("choices");
     form = document.getElementById("accept-refuse");
+    toggle = document.getElementById("toggle-choices");
     affectedAmendments = {};
 
     moveNextToAmendment = function(amendment, item) {
         var affected, offset, i, len, a;
         affected = document.getElementById(amendment);
+        if (affected === null) {
+            return
+        }
         item.style.position = "absolute";
         if (!(amendment in affectedAmendments)) {
             affectedAmendments[amendment] = [];
@@ -29,6 +33,7 @@
 
         li = document.createElement("li");
         li.dataset.relatedTo = "PÄA" + päa.number;
+        li.classList.add("unselected");
         if (päa.affects) {
             setTimeout(function() {
                 moveNextToAmendment(päa.affects, li);
@@ -70,7 +75,7 @@
 
         checkbox.type = "checkbox";
         checkbox.id = "PÄA" + päa.number;
-        checkbox.checked = true;
+        checkbox.checked = false;
         label.setAttribute("for", "PÄA" + päa.number);
         label.appendChild(document.createTextNode(päa.title));
     };
@@ -84,6 +89,27 @@
             item.classList.remove("unselected");
         } else {
             item.classList.add("unselected");
+        }
+    };
+
+    toggleChoices = function(event) {
+        var i, len, checkmarks, toggle;
+        checkmarks = choices.querySelectorAll("input");
+        toggle = event.target;
+        for (i = 0, len = checkmarks.length; i < len; i += 1) {
+            if (toggle.dataset.toggle === "on") {
+                checkmarks[i].checked = true;
+            } else {
+                checkmarks[i].checked = false;
+            }
+            onUserChoice({target: checkmarks[i]});
+        }
+        if (toggle.dataset.toggle === "on") {
+            toggle.dataset.toggle = "off";
+            toggle.innerHTML = "Alle ausblenden";
+        } else {
+            toggle.dataset.toggle = "on";
+            toggle.innerHTML = "Alle einblenden";
         }
     };
 
@@ -141,4 +167,5 @@
 
     choices.addEventListener("change", onUserChoice);
     form.addEventListener("submit", onSubmit);
+    toggle.addEventListener("click", toggleChoices);
 })(this)
