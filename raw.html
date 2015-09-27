@@ -14,8 +14,10 @@
         <form id="accept-refuse" action="">
             <p><select><option value="?">Antrag auswählen</option></select></p>
             <p>
-                <input type="radio" name="accept-refuse" value="accepted" />Angenommen
-                <input type="radio" name="accept-refuse" value="refused" />Abgelehnt
+                <input type="radio" name="accept-refuse" id="accept" value="accepted" />
+                <label for="accept">Angenommen</label>
+                <input type="radio" name="accept-refuse" id="refuse" value="refused" />
+                <label for="refuse">Abgelehnt</label>
             </p>
             <p><input type="submit" value="Merken" /></p>
         </form>
